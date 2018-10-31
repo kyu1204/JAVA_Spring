@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="student1" class="com.javalec.test4.Student">
+		<constructor-arg>
+			<value>김민규</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>26살</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>201255010</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>전자소프트웨어</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="student2" class="com.javalec.test4.Student">
+		<constructor-arg value="조희진"/>
+		<constructor-arg value="23살"/>
+		<constructor-arg value="201500000"/>
+		<constructor-arg value="실내건축디자인"/>
+	</bean>
+	
+	<bean id="studentInfo" class="com.javalec.test4.StudentInfo">
+		<constructor-arg>
+			<ref bean="student1"/>
+		</constructor-arg>
+	</bean>
+
+</beans>
