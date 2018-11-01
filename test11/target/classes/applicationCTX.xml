@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+	
+	<bean id="logAop" class="com.javalec.test11.LogAop"/>
+	
+	<aop:config>
+		<aop:aspect id="logger" ref="logAop">
+			<aop:pointcut expression="within(com.javalec.test11.*)" id="publicM"/>
+			<aop:around method="loggerAop" pointcut-ref="publicM"/>
+		</aop:aspect>
+	</aop:config>
+	
+	<bean id="student" class="com.javalec.test11.Student">
+		<property name="name" value="김민규"/>
+		<property name="age" value="26"/>
+		<property name="major" value="전자소프트웨어"/>
+	</bean>
+	
+	<bean id="worker" class="com.javalec.test11.Worker">
+		<property name="name" value="김민규"/>
+		<property name="age" value="26"/>
+		<property name="job" value="대학생"/>
+	</bean>
+
+</beans>
